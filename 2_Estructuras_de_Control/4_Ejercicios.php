@@ -223,7 +223,10 @@
         /*
             Operador ternario
             (condición) ? (si se cumple) : (si no se cumple)
+            Ejemplo:
         */
+            $n = rand();
+            echo ($n % 2 == 0) ? "$n es par" : "$n es impar";
     ?>
 </body>
 </html>

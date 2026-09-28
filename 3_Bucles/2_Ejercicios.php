@@ -80,12 +80,89 @@
             echo "<p>Semana $sema  </p>";
             echo "<p> Dinero: $euro euros </p>";
             echo "<p> Gastado: $gast euros </p>";
-            if($sema % 4 == 0) {
+            if ($sema % 4 == 0) {
                 echo "<p> Aportado:20 euros </p>";
             } else {
                 echo "<p> Aportado: 40 euros </p>";
             }
         }
     ?>
+
+    <h3> Ejercicio 4 </h3>
+    <p>
+        Genera números enteros del 1 al 20 con un do-while y acumulalos. Si superas el 100
+        sin haber alcanzado exáctamente el num 100 entonces el bucle termina y tienes que mostrar
+        el número creado y dibujar la fuente de la frase en rojo si es par y en azul si es impar.
+        En el caso de que hayas llegado exáctamente al 100 seguirás iterando hasta llegar o sobrepasar
+        el 150. En este caso, la frase estará en verde si es par y en morado si es impar.
+        Además, añade el número de iteraciones
+    </p>
+<?php
+$num = 0;
+$sum = 0;
+$string = "blue";
+    do {
+        $num = rand(1,20);
+        $sum += $num;
+        if ($sum > 100 && $sum % 2 == 0)  $string = "red";
+        if($sum == 100) {
+            while ($sum < 150) {
+                $num = rand(1,20);
+                $sum += $num;
+                $string = "purple";
+                if ($sum >= 150 && $sum % 2 == 0) $string = "green";
+            }
+        }
+    } while ($sum < 100);
+    echo "<p> El numero de iteraciones es $num </p>";
+    echo "<p style='color : $string' > La suma acumulada es  $sum </p>";
+?>
+    <h3>Ejercicio 5</h3>
+    <p> Crea una función que reciba un número y dos límites enteros. Rechaza límites invertidos
+        Recorre el intervalo con for y muestra solo las operaciones cuyo resultado sea par. Calcula
+        cuántas has mostrado y la suma de sus resultados
+        En el caso de que todas las operaciones sean impar muestra que no haya ningún resultado par
+        En el caso de que se introduzca el min y el máx estén mal se invierte
+    </p>
+    <?php
+    $min = 0;
+    $max = 0;
+    function mult (int $num, int $min, int $max) {
+        $cambio= 0;
+        $mult = 0;
+        $boo = false;
+        $sum = 0;
+        $cont = 0;
+        if ($min > $max) {
+            $cambio= $max;
+            $max = $min;
+            $min = $cambio;
+        } 
+        for ($i=$min; $i <= $max ; $i++) { 
+            $mult = $num * $i;
+            if ($mult % 2 == 0) {
+                echo "<p> $num * $i = $mult </p>";
+                $sum += $mult;
+                $boo = true;
+                $cont++;
+            } 
+        }
+        echo "<p> La suma total es $sum </p>";
+        echo "<p> Se ha mostrado $cont </p>";
+        if(!$boo) {
+        echo "<p> No hay resultado par </p>";
+        }
+    }
+    mult(5, 3, 8);
+
+    ?>
+    <h3>Ejercicio 6</h3>
+    <p>
+        Function grupos () {
+            rand (100, 150)
+            Creamos 4 grupos donde guardamos los num. mult de 3, los de 5, los de 3 y 5 y el resto. Además hay que sacar la media
+            de cada grupo
+        }
+    </p>
 </body>
 </html>
