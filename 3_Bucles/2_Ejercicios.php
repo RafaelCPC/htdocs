@@ -164,5 +164,249 @@ $string = "blue";
             de cada grupo
         }
     </p>
+    <?php
+        function ej6 () {
+            $num = rand(100,150);
+
+        }
+        ej6 ();
+    ?>
+
+    <h3>Ejercicio 7</h3>
+    <p>
+        Crear una función que calcule con un for la suma de los siguientes números 1, -2, 3, -4... hasta n.
+        Acepta enteros entre 0 y 100 y rechaza otros valores que estén fuera de rango. La función devolverá 
+        la suma anterior y una comparación con la suma normal del 1 hasta n
+    </p>
+    <?php
+        function ej7 (int $n):string {
+            $res = ""; $sum = 0; $num = 0; $sumNor = 0;
+
+            if($n <= 100 && $n >= 0) {
+                for ($i=1; $i <= $n; $i++) { 
+                    ($i % 2 == 0) ? $num = -$i : $num = $i;
+                    $sum += $num;
+                    $sumNor += $i;
+                } 
+                $res = "<p>Suma modificada: $sum </p>
+                <p> Suma normal: $sumNor";
+            } else {
+                $res = "<p> No es un valor correcto </p>";
+            }
+
+            return $res;
+        }
+
+        echo ej7(13);
+    ?>
+    <h3>Ejercicio 8</h3>
+    <p>
+        Crea la función factorial ($n) para enteros de 0 a 15, rechazando valores fuera de ese parámetro.
+        Un factorial es (3!) y significa 3! = 1 * 2 * 3. El factorial de 0! es 1.
+    </p>
+    <?php
+        function ej8(int $n): string {
+            $res = ""; $fact = 1;
+            if($n >= 0 && $n <= 15) {
+                for ($i=1; $i <= $n ; $i++) { 
+                    $fact *= $i;
+                }
+                $res = "<p> El factorial es: $fact </p>";
+            } else $res = "<p> No es un valor correcto </p>";
+            
+            return $res;
+        }
+        echo ej8(10);
+    ?>
+    <h3>Ejercicio 9</h3>
+    <p>
+        Sin convertirlo en cadena ni array, recorre las cifras de un número entero entre 0 y 999999 generado de 
+        manera aleatoria. Calcula la cantidad de cifras que tiene el número, la suma de sus cifras, la cifra mayor,
+        la menor y el número de 0 que contiene. Devolver una cadena como la siguiente: "Para 4050: cuatro cifras, 
+        suma 9, mayor 5, menor 0, 2 ceros". Se saca con % 10. El último número se puede sacar convirtiendolo en num entero.
+        En php eso se hace con intval.
+    </p>
+    <?php
+        function ej9 (): string {
+            $ran = rand(0, 999999); $num = 1; $cont = 0; $sum = 0; $min = 10; $max = 0; $cero = 0;
+            $dum = $ran;
+            while ($dum != 0){
+                if($dum != 0) {
+                    $cont++;
+                    $num = intval($dum % 10);
+                    $dum =intval($dum/10);
+                    if ($num < $min) $min = $num;
+                    if ($num > $max) $max = $num;
+                    if($num == 0) $cero++;
+                    $sum += $num;
+                }
+            }
+            return "<p> Para $ran: $cont cifras, suma $sum, mayor $max, menor $min, $cero ceros </p>";
+        }
+        echo ej9();
+    ?>
+    <h3>Ej 10</h3>
+    <p>
+        Crea una función que, dependiendo del parámetro que se le pase, dibujará un triángulo más o menos grande
+        El parámetro indicará el tamaño del triángulo. Altura mínima 3 (obligatorio).
+        Opcional triangulo2(n). Hace el triángulo invertido
+    </p>
+    <?php
+        function ej10(int $n) {
+            if ($n < 3) $n = 3;
+
+            // Triangulo 1
+            for ($i=0; $i < $n; $i++) { 
+                for ($j=0; $j < $n; $j++) { 
+                    if($j <= $i) echo "* ";
+                }
+                echo "<br>";
+            }
+            echo "<br>";
+
+            // Triangulo 2
+
+            for ($i=0; $i < $n; $i++) { 
+                for ($j=0; $j < $n; $j++) { 
+                    if($j >= $i) echo "* ";
+                }
+                echo "<br>";
+            }
+            echo "<br>";
+
+            // Triangulo 3
+
+            for ($i=0; $i < $n; $i++) { 
+                $num = 1;
+                for ($j=0; $j < $n; $j++) { 
+                    if ($num < ($n -$i)) {
+                        $num++;
+                        echo "&nbsp";
+                    } else {
+                        echo "* ";
+                    } 
+                }
+                echo "<br>";
+            }
+                echo "<br>";
+
+            // Triangulo 4
+
+            for ($i=0; $i < $n; $i++) { 
+                $num = 1;
+                for ($j=0; $j < $n; $j++) { 
+                    if ($num < ($n -$i)) {
+                        $num++;
+                        echo "&nbsp &nbsp";
+                    } else {
+                        echo "* ";
+                    } 
+                }
+                echo "<br>";
+            }
+        }
+        ej10(5);
+    ?>
+    <h3>Ejercicio 11</h3>
+    <p>
+        Crea una función que acepte un parámetro numérico entero. Dado dicho número se construirá
+        una tabla que calcule el cuadrado, el cubo y el signo de cada número empezando desde el número
+        en negativo hasta llegar al número. Ejemplo gráfico para la llamada ej11(2) deberia salir:
+    </p>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Cuadrado</th>
+                <th>Cubo</th>
+                <th>Signo</th>
+            </tr>
+            <tr>
+                <th>-2</th>
+                <th>4</th>
+                <th>-8</th>
+                <th>Negativo</th>
+            </tr>
+            <tr>
+                <th>-1</th>
+                <th>1</th>
+                <th>-1</th>
+                <th>Negativo</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>1</th>
+                <th>1</th>
+                <th>positivo</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>4</th>
+                <th>8</th>
+                <th>positivo</th>
+            </tr>
+        </thead>
+    </table>
+
+    <?php
+        function ej11 (int $n) {
+    ?>
+        <table border="">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Cuadrado</th>
+                <th>Cubo</th>
+                <th>Signo</th>
+            </tr>
+        </thead>
+        <tbody>
+    <?php
+            for ($i=-$n; $i <= $n; $i++) { 
+                if($i != 0) {
+    ?>
+                <tr>
+    <?php
+                    echo "<td> $i </td>";
+                    echo "<td>" . ($i * $i) . "</td>";
+                    echo "<td>" . ($i * $i * $i) . "</td>";
+                    $res = "";
+                    ($i < 0) ? $res= "<td> Negativo </td>": $res= "<td> Positivo </td>";
+                    echo $res;
+    ?>
+                </tr>
+    <?php
+                }
+            }
+    ?>
+        </tbody>
+    <?php
+        }
+        ej11(4);
+    ?>
+    <h3>Ejercicio 12. Chungo</h3>
+    <p>
+        Crea una función que reciba un número y dibuje por ejemplo... (img de la pizarra):
+        Ten en cuenta que si es impar se pone la ultima +, pero si es par no y no se cruza
+        chungo(7)
+        \+ + + + +/
+         \ + + + /
+           \ + /
+             +
+    </p>
+    <?php
+        function ej12 (int $n) {
+
+            for ($i=0; $i < $n; $i++) { 
+                for ($j=0; $j < $n; $j++) { 
+                    if ($j == $i) echo "";
+                    elseif ($j == ($n - $i)) echo "/";
+                    else echo"+";
+                }
+                echo "<br>";
+            }
+        }
+        ej12(7);
+    ?>
 </body>
 </html>
