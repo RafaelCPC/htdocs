@@ -307,7 +307,7 @@ $string = "blue";
         }
         ej10(5);
     ?>
-    <h3>Ejercicio 11</h3>
+    <h3>Ejercicio 11</h3> <!-- Un ejercicio como este seguramente caiga en la prueba -->
     <p>
         Crea una función que acepte un parámetro numérico entero. Dado dicho número se construirá
         una tabla que calcule el cuadrado, el cubo y el signo de cada número empezando desde el número
@@ -362,17 +362,24 @@ $string = "blue";
         </thead>
         <tbody>
     <?php
+            $sty = 0;
             for ($i=-$n; $i <= $n; $i++) { 
                 if($i != 0) {
-    ?>
-                <tr>
-    <?php
+                    $estilo = "";
+                    if ($sty %2 == 0) $estilo = "aqua";
+                    $sty++;
+                    echo "<tr style='background-color: $estilo;'>";
+                    /*
+                    el estilo lo podemos meter directamente dentro de la etiqueta tr
+                    */
                     echo "<td> $i </td>";
+                    /*
+                    existe una abreviatura a lo de arriba <td> <?= $i ?> <td 
+                    */
                     echo "<td>" . ($i * $i) . "</td>";
                     echo "<td>" . ($i * $i * $i) . "</td>";
-                    $res = "";
-                    ($i < 0) ? $res= "<td> Negativo </td>": $res= "<td> Positivo </td>";
-                    echo $res;
+                    echo ($i < 0) ? "<td> Negativo </td>": "<td> Positivo </td>";
+
     ?>
                 </tr>
     <?php
@@ -399,8 +406,8 @@ $string = "blue";
 
             for ($i=0; $i < $n; $i++) { 
                 for ($j=0; $j < $n; $j++) { 
-                    if ($j == $i) echo "";
-                    elseif ($j == ($n - $i)) echo "/";
+                    if ($j == $i) echo "\\";
+                    elseif ($j == (($n - $i)-1)) echo "/";
                     else echo"+";
                 }
                 echo "<br>";
