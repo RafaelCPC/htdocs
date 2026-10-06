@@ -50,7 +50,23 @@
             echo "<br>";
         }
 
-        // 5. Fpreach
+        /*
+         5. For each
+            Sirve para iterar los elementos de un array tanto asociativos como indexado
+        */
+        $nombres = ["12345678A" => "Ana","33421231B" => "Luis","98765432C" =>  "Marta","77882220D" =>  "Paquito","5552334" =>  "Emilio"];
+        
+        // esto me saca el valor solo
+        foreach($nombres as $nombre) {
+            echo $nombre . "<br>";
+        }
+
+        $deportes = ["baloncesto" => "Lebron", "futbol" => "Messi", "tenis" => "Federer", "MMA" => "nurmagomedov"];
+        foreach($deportes as $deporte => $jugador) {
+            if($deporte =! "MMA") echo "<p> En el $deporte el rey es $jugador </p>";
+            else echo "<p> En las $deporte el rey es $jugador </p>";
+            }
+
         // 6. Generar HTML con un bucle
 
         echo "<h2> Generar una lista HTML con un bucle </h2>";

@@ -107,9 +107,37 @@
         // echo (2 < 3) ? "hola" : "adios"; // ternario
         echo $salto;
         $animales["anfibio"] = "rana";
-        echo $animales["anfibio"] ?? "no existe"; 
+        echo $animales["anfibio"] ?? "no existe";
+        echo "<br>";
+
 
         // 5. Comparación
+        $a = ["uno" => 1, "dos" => 2];
+        $b = ["dos" => 2, "uno" => 1];
+        /*
+            En php, como todo son variables y no hay tipos de datos, compararar dos arrays
+            es muy sencillo. Solo tenemos que hacer lo siguiente. En Java sería mucho más 
+            difícil porque tendrías que hacer un bucle y eso.
+        
+        */
+        var_dump($a == $b); // T - porque tiene las mismas asociaciones clave - valor
+        var_dump($a === $b); // F - Tiene las mismas asociaciones, pero el orden es distinto
+        
+        $a = [1,2]; 
+        $b = ["1","2"]; 
+        echo "<br>";
+
+
+        var_dump($a == $b);// T - son los mismos valores
+        var_dump($a === $b); // F - el tipo de dato es diferente
+        echo "<br>";
+
+        $p1 = ["Ana", "Luis"];
+        $p2 = ["Luis", "Ana"];
+
+        var_dump($p1 == $p2); // F - sale falso porque las posiciones no son las mismas
+        var_dump($p1 === $p2); // F - ni las posiciones ni el string son los mismos
+        
     ?>  
 </body>
 </html>
