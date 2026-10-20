@@ -69,6 +69,8 @@
 
         <?php
             function tabla (array $viajes) {
+                //debería haber hecho 
+                // global $viajes;
         ?>
         <table border="">
         <thead>
