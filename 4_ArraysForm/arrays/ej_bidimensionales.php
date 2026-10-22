@@ -37,11 +37,7 @@
     </form>
     <?php
         function tabla () {
-            global $arra;
-            $sumCol1 = 0;
-            $sumCol2 = 0;
-            $sumCol3 = 0;
-            
+            global $arra;   
     ?>
         <table border="">
             <thead>
@@ -55,25 +51,21 @@
                 </tr>
             </thead>
         <?php
-            foreach ($arra as $valor) {
-
-                list($col1, $col2, $col3) = $valor;
-                $sumCol1 += $col1;
-                $sumCol2 += $col2;
-                $sumCol3 += $col3;
+            for ($i=0; $i < count($arra); $i++) { 
+                $sumaCol = 0;
                 $suma = 0;
                 echo "<tr>";
-                for ($i=0; $i < count($valor); $i++) { 
-                    echo "<td> $valor[$i] </td>";
-                    $suma += $valor[$i];
+                for ($j=0; $j < count($arra[$i]); $j++) { 
+                    echo "<td> $arra[$i][$j] </td>";
+                    $suma += $arra[$i][$j];
                 }
                 echo "<td> $suma </td>";
                 echo "</tr>";
             }
             echo "<tr>";
-            echo "<td> $sumCol1 </td>";
-            echo "<td> $sumCol2 </td>";
-            echo "<td> $sumCol3 </td>";
+                for ($i=0; $i < count($arra); $i++) { 
+                    echo "<th> SumCol[$i]</th>";
+                }
             echo "<th> Suma cols </th>";
             echo "</tr>";
         ?>
