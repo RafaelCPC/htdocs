@@ -22,6 +22,15 @@
         if($_SERVER ["REQUEST_METHOD"] == "POST") {
             if (isset($_POST ["formularios"]) && $_POST["formularios"] == "ej1") {
                 $arr = explode("," , $_POST["texto"]);
+                echo $_POST["texto"];
+                if(strtoupper($_POST["orden"]) == "ASC") arsort($arr);
+                else if(strtoupper($_POST["orden"]) == "DESC") asort($arr);
+                else{
+                    echo "<p> No se ha introducido un orden adecuado </p>";
+                }
+
+                $strin = implode(" // ", $arr);
+                echo "<p> $strin </p>";
             }
         }
     ?>
