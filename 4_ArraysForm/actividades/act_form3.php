@@ -26,6 +26,14 @@
                 $arr2 = explode("," , $_POST["textoB"]);
                 $conj = []; $igual = false; $rep = []; $norepA = []; $norepB = []; $repBool = false;
             
+                /*
+                    Podemos usar para hacerlo más fácil:
+                     array_unique(): nos devuelve un array. Elimina los elementos repetidos del array
+                     array_values(): para resetear la posición del array unique
+                     $a = array_unique($a);
+                     $a = array_values($a);
+                */
+
             // Recorro el arr1
                 for ($i=0; $i < count($arr1); $i++) { 
                     // se está el valor de arr1 en el conjunto se pasa a true
@@ -57,8 +65,6 @@
                     else array_push($rep, $arr2[$i]);
                     $igual = false;
                 }
-
-
 
                 $strin = implode(" , ", $conj);
                 $inter = implode(" , ", $rep);
