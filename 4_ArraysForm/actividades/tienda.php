@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cesta de la compra con descuento | Ejercicio 11</title>
+    <?php
+        ini_set("display errors", 1);
+        error_reporting(E_ALL);
+    ?>
 </head>
 <body>
     <?php
@@ -73,16 +77,24 @@
                     $esta = false;
                     foreach ($productos as $clave => $valor) {
                         $precio = 0;
-                        list($nom, $prec, $cat, $iva) = $valor;
-                        echo $cat;
-                        echo "<pre>";
-                        print_r($valor);
-                        echo "</pre>";
-                        if(array_key_exists($nom, $_POST) && $_POST[$nom] > 0 && $_POST[$nom] != "") {
+                        list($nom, $prec, $cat, $iva) = array_values($valor);
+                        $desc = 0;
+                        if ($_POST[$clave] > 10) {
+                            $desc = 0.2;
+                        } else if ($_POST[$clave] > 5){
+                            $desc = 0.1;
+                        }
+                        $cant= $prec *  $_POST[$clave];
+                        $ivaTot= $_POST[$clave] * $iva;
+                        if($_POST[$clave] > 0 && $_POST[$clave] != "") {
                             echo "<tr>";
-                            echo "<td> $nom - $cat</td>";
-                            echo "<td> $_POST[$nom] </td>";
+                            echo "<td> $nom - $cat </td>";
+                            echo "<td> $_POST[$clave] </td>";
                             echo "<td> $prec </td>";
+                            echo "<td>" . $cant  . "</td>";
+                            echo ($desc != 0) ? "<td>" . $cant *  $desc  . "</td>" : "<td> - </td>";
+                            echo "<td>" . $ivaTot . "</td>";
+                            echo "<td>" . $cant + $ivaTot - ($cant *  $desc). "</td>";
                             echo "</tr>";
                             $esta = true;
                         }
