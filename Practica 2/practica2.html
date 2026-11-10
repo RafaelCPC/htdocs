@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=+, initial-scale=1.0">
+    <title>Practica 2 PHP</title>
+</head>
+<body>
+    <!-- Ejercicio 1-->
+    <h2> Catálogo de Películas Disponibles</h2>
+    <form action="soluciones.php" method="post">
+        <input type="hidden" name="ejercicios" value="ej1">
+        <p> <b>Inception</b> (Ciencia Ficción) - 3.5€/día</p> 
+        <label for="">Días de alquiler:</label>
+        <input type="number" name="inception" id=""> <br> <br>
+
+        <p> <b>Parasite</b> (Thriller) - 3€/día</p> 
+        <label for="">Días de alquiler:</label>
+        <input type="number" name="parasite" id=""> <br> <br>
+
+        <p> <b>Interstellar</b> (Ciencia Ficción) - 3.5€/día</p> 
+        <label for="">Días de alquiler:</label>
+        <input type="number" name="interstellar" id=""> <br> <br>
+
+        <p> <b>Joker</b> (Drama) - 2.5€/día</p> 
+        <label for="">Días de alquiler:</label>
+        <input type="number" name="joker" id=""> <br> <br>
+
+        <p> <b>Avenger: Endgame</b> (Acción) - 4€/día</p> 
+        <label for="">Días de alquiler:</label>
+        <input type="number" name="avengers" id=""> <br> <br>
+
+        <input type="submit" value="Calcular Total del Alquiler">
+    </form>
+
+    <br>
+    <br>
+    <hr>
+    <!-- Ejercicio 2-->
+     <h2> Ejercicio 2 - Listado de notas de clase </h2>
+    <form action="soluciones.php" method="post">
+        <input type="hidden" name="ejercicios" value="ej2">
+        <label for="grupo">Grupo:</label>
+        <select name="grupo">
+            <option value="todos">Todos</option>
+            <option value="DAW">DAW</option>
+            <option value="DAM">DAM</option>
+        </select>
+        <input type="submit" value="VER LISTADO">
+    </form>
+</body>
+</html>
