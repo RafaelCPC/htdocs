@@ -67,6 +67,9 @@
         $i++;
       }
       
+      // filter_var($entero, FILTER_VALIDATE_IP) Nos valida una IP por lo que tiene que ser un valor entre 0 a 255 y separado por puntos.
+      // filter_var($mac, FILTER_VALIDATE_MAC) Valida una dirección mac
+      
      ?>
 </body>
 </html>
