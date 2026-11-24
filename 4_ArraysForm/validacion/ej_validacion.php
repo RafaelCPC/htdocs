@@ -113,7 +113,12 @@
             <?php 
             $radio = ["manana" => "Mañana", "tarde" => "Tarde"];
             foreach ($radio as $name => $campo) {
+                if($turn == $name) {
+                echo "<input type='radio' name='turno' value= '$name' id ='$name' checked>";
+                } else {
                 echo "<input type='radio' name='turno' value= '$name' id ='$name' >";
+                }
+               
                 echo "<label for='$name'> $campo </label>";
                 echo "<br>";
             }
