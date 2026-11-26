@@ -34,14 +34,14 @@
 </head>
 <body>
     <?php 
-        $nom = ""; $email = ""; $edad = ""; $cond = "";
+        $nom = ""; $email = ""; $edad = ""; $cond = ""; $turn = "";
 
         $err_nom = ""; $err_email = ""; $err_edad = ""; $err_lista = ""; $err_turno = ""; $err_cond = "";
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $nom = trim($_POST["nombre"] ?? "");
-            $email = trim($_POST["email"] ?? "");
+            $email = trim($_POST["correo"] ?? "");
             $edad = trim($_POST["edad"] ?? "");
 
             $turn = ($_POST["turno"] ?? "");
